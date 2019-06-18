@@ -34,6 +34,7 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.0.6.RELEASE'
     
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+    testCompile("org.mockito:mockito-core:2.23.4")
 }
 
 bootRun.environment([
