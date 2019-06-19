@@ -37,6 +37,7 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.0.6.RELEASE'
     compile("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
     compile("mysql:mysql-connector-java:6.0.6")
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
     testCompile("org.mockito:mockito-core:2.23.4")
@@ -49,11 +50,13 @@ def testDbUrl = "jdbc:mysql://localhost:3306/tracker_test?user=tracker&useSSL=fa
 bootRun.environment([
         "WELCOME_MESSAGE": "hello",
         "SPRING_DATASOURCE_URL": developmentDbUrl,
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
 ])
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl,
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
 ])
 
 
